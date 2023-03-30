@@ -1,0 +1,7 @@
+groups:
+  - name: nodejsApp
+    rules:
+      - record: job:up
+        expr: up{job:Nodejs-App}
+      - alert: nodejsDown
+        expr: job:up == 0
