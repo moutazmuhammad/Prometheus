@@ -67,3 +67,11 @@ sudo systemctl enable alertmanager
 The `Alert-Manager` listens on HTTP port `9093` by default.
 
 go to `/etc/prometheus/prometheus.yml` to enable talking to `Alert-Manager`.
+
+```
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+            - 'localhost:9093'  # Replace with the address of your Alertmanager instance
+```
