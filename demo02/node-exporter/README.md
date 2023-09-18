@@ -51,3 +51,45 @@ sudo systemctl enable node_exporter
 The `Node_Exporter` listens on HTTP port `9100` by default.
 
 go to `/etc/prometheus/prometheus.yml` to add another item in the scrabers section.
+
+
+# You can enable additional collectors in Node Exporter after following the installation steps you provided:
+
+1. Edit the Node Exporter Service Unit File:
+- Use a text editor to open the Node Exporter service unit file you created:
+```
+sudo vim /etc/systemd/system/node_exporter.service
+```
+
+2. Modify the ExecStart Line:
+- Inside the service unit file, locate the ExecStart line. It should look something like this:
+```
+ExecStart=/usr/local/bin/node_exporter
+```
+
+To enable additional collectors, you can add the --collector flags to this line. For example, if you want to enable the cpu and memory collectors, modify the line as follows:
+```
+ExecStart=/usr/local/bin/node_exporter --collector.cpu --collector.memory
+```
+Add any other collectors you want to enable by including their respective --collector flags.
+
+3. Save the Service Unit File: After making the necessary changes, save the file and exit the text editor.
+
+4. Reload systemd and Restart Node Exporter:
+- Reload the systemd configuration to apply the changes:
+```
+sudo systemctl daemon-reload
+```
+Then, restart the Node Exporter service to apply the new configuration:
+```
+sudo systemctl restart node_exporter
+```
+
+5. Check Node Exporter Status:
+- Verify that Node Exporter is running without errors:
+```
+sudo systemctl status node_exporter
+```
+Ensure that there are no errors in the status output.
+
+By modifying the ExecStart line in the systemd service unit file, you can enable additional collectors for Node Exporter. Remember to monitor the metrics mentioned in your original question (scrape_duration_seconds and scrape_samples_post_metric_relabeling) to ensure the collectors are working as expected and not causing any performance issues.
