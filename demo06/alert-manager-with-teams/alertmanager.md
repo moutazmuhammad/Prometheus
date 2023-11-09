@@ -1,3 +1,6 @@
+
+## First: You need to install [alertmanager](https://github.com/moutazmuhammad/Prometheus/tree/main/demo06/install-alert-manager-as-service)
+
 ```yaml
 global:
 
