@@ -16,13 +16,13 @@ cd /tmp/
 sudo curl -Lo prometheus-msteams  https://github.com/bzon/prometheus-msteams/releases/download/v1.4.1/prometheus-msteams-linux-amd64 && chmod +x prometheus-msteams && sudo mv prometheus-msteams /usr/local/bin/
 ```
 ```sh
-sudo mkdir -p /etc/promethues-msteams/
+sudo mkdir -p /etc/prometheus-msteams/
 ```
 
 2. To have more options in the future you can use config.yml to provide webhook. So that you can give multiple webhooks to send alerts to multiple channels in MS-teams in future if you need it.
 
 ```sh
-sudo vim /etc/promethues-msteams/config.yml
+sudo vim /etc/prometheus-msteams/config.yml
 ```
 
 Add webhooks as shown below. if you want to add another webhook, you can add right after first webhook.
@@ -34,7 +34,7 @@ connectors:
 3. The next step is to add a template for custom notification.
 
 ```sh
-sudo vim /etc/promethues-msteams/card.tmpl
+sudo vim /etc/prometheus-msteams/card.tmpl
 ```
 Copy the following content in your file, or you can modify the following template as per your requirements. This template can be customized and uses the Go [Templating Engine](https://golang.org/pkg/text/template/).
 
@@ -85,8 +85,8 @@ sudo useradd --no-create-home --shell /bin/false prometheus-msteams
 
 5. Change Owner of files and directorys:
 ```sh
-sudo chown prometheus-msteams:prometheus-msteams  /etc/promethues-msteams/
-sudo chown prometheus-msteams:prometheus-msteams  /etc/promethues-msteams/*
+sudo chown prometheus-msteams:prometheus-msteams  /etc/prometheus-msteams/
+sudo chown prometheus-msteams:prometheus-msteams  /etc/prometheus-msteams/*
 sudo chown prometheus-msteams:prometheus-msteams /usr/local/bin/prometheus-msteams 
 ```
 
@@ -96,7 +96,7 @@ sudo chown prometheus-msteams:prometheus-msteams /usr/local/bin/prometheus-mstea
 ```sh
 sudo vim /etc/systemd/system/prometheus-msteams.service
 ```
-The service file tells systemd to run prometheus-msteams as the prometheus-msteams user, with the configuration file located /etc/promethues-msteams/config.yml, and template file located in the same directory.
+The service file tells systemd to run prometheus-msteams as the prometheus-msteams user, with the configuration file located /etc/prometheus-msteams/config.yml, and template file located in the same directory.
 
 Copy the following content into prometheus-msteams.service file.
 ```yaml
@@ -113,7 +113,7 @@ ExecStart=/usr/local/bin/prometheus-msteams -config-file /etc/prometheus-msteams
 WantedBy=multi-user.target
 ```
 
-promethues-msteams listen on localhost on `2000 port`, and you have to provide configuration file and template also.
+prometheus-msteams listen on localhost on `2000 port`, and you have to provide configuration file and template also.
 
 
 7. Start Service
