@@ -11,6 +11,8 @@ I still faced some challenges and took half of the day of mine.
 1. Download the binary:
 
 ```sh
+cd /tmp/
+
 sudo curl -Lo prometheus-msteams  https://github.com/bzon/prometheus-msteams/releases/download/v1.4.1/prometheus-msteams-linux-amd64 && chmod +x prometheus-msteams && sudo mv prometheus-msteams /usr/local/bin/
 ```
 ```sh
