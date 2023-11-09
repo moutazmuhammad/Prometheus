@@ -38,6 +38,8 @@ sudo vi /etc/systemd/system/node_exporter.service
 ```
 - go to this file [Node_Exporter Service File](node_exporter.service)
 
+[SEE LINK](https://github.com/prometheus/node_exporter)
+
 > 6. finally start and enable `Node_Exporter` service:
 ```
 sudo systemctl daemon-reload
