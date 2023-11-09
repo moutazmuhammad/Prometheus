@@ -38,8 +38,6 @@ sudo vi /etc/systemd/system/node_exporter.service
 ```
 - go to this file [Node_Exporter Service File](node_exporter.service)
 
-[SEE LINK](https://github.com/prometheus/node_exporter)
-
 > 6. finally start and enable `Node_Exporter` service:
 ```
 sudo systemctl daemon-reload
@@ -55,7 +53,8 @@ The `Node_Exporter` listens on HTTP port `9100` by default.
 go to `/etc/prometheus/prometheus.yml` to add another item in the scrabers section.
 
 
-# You can enable additional collectors in Node Exporter after following the installation steps you provided:
+# You can enable additional collectors in Node Exporter after following the installation steps you provided: [SEE LINK](https://github.com/prometheus/node_exporter)
+
 
 1. Edit the Node Exporter Service Unit File:
 - Use a text editor to open the Node Exporter service unit file you created:
