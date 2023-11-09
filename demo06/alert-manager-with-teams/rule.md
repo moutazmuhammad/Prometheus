@@ -6,10 +6,7 @@ sudo vi /etc/prometheus/prometheus.yml
 ```
 sudo vi /etc/prometheus/rules.yml
 ```
-## 3- restart prometheus service:
-```
-sudo systemctl restart prometheus
-```
+
 
 
 ```yaml
@@ -34,4 +31,8 @@ groups:
         annotations:
           summary: "Odoo node is down"
           description: "Odoo node has been down for more than 1 minutes."
+```
+## 3- restart prometheus service:
+```
+sudo systemctl restart prometheus
 ```
